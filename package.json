@@ -1,0 +1,17 @@
+{
+  "name": "soa-example-authorization-service-api",
+  "version": "0.0.0",
+  "description": "A sample utility to access my sample authorization service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Bucholtz",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+		"q" : "1.0.1",
+		"request" : "*",
+    "soa-example-service-config": "git://github.com/danbucholtz/soa-example-service-config",
+    "soa-example-core-utils": "git://github.com/danbucholtz/soa-example-core-utils"
+  }
+}
