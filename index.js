@@ -10,7 +10,7 @@ var getPermissions = function(accessToken){
 	
 	var url = utils.createBaseUrl(config.authorizationServiceIp, config.authorizationServicePort);
 
-	utils.getWithAccessToken(url + "/permissions", accessToken).then(function(response){
+	utils.getWithAccessToken(accessToken, url + "/permissions").then(function(response){
 		deferred.resolve(response);
 	});
 
