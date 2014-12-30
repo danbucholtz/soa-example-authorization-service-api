@@ -5,13 +5,25 @@ var utils = require("soa-example-core-utils");
 
 var config = require("soa-example-service-config").config();
 
+var redisUtil = require('soa-example-redis-util');
+
 var getPermissions = function(accessToken){
 	var deferred = Q.defer();
-	
-	var url = utils.createBaseUrl(config.authorizationServiceIp, config.authorizationServicePort);
 
-	utils.getWithAccessToken(accessToken, url + "/permissions").then(function(response){
-		deferred.resolve(response);
+	redisUtil.get("permissions").then(function(permissions){
+		if ( permissions ){
+			deferred.resolve(permissions);
+			return;
+		}
+		
+		var url = utils.createBaseUrl(config.authorizationServiceIp, config.authorizationServicePort);
+
+		utils.getWithAccessToken(accessToken, url + "/permissions").then(function(response){
+			
+			redisUtil.put("permissions", response);
+
+			deferred.resolve(response);
+		});
 	});
 
 	return deferred.promise;

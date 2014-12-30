@@ -11,7 +11,8 @@
   "dependencies": {
 		"q" : "1.0.1",
 		"request" : "*",
+    "soa-example-core-utils": "git://github.com/danbucholtz/soa-example-core-utils",
     "soa-example-service-config": "git://github.com/danbucholtz/soa-example-service-config",
-    "soa-example-core-utils": "git://github.com/danbucholtz/soa-example-core-utils"
+    "soa-example-redis-util" : "git://github.com/danbucholtz/soa-example-redis-util"
   }
 }
