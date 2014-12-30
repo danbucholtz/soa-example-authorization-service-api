@@ -12,6 +12,7 @@ var getPermissions = function(accessToken){
 
 	redisUtil.get("permissions").then(function(permissions){
 		if ( permissions ){
+			console.log("Permissions found in Redis");
 			deferred.resolve(permissions);
 			return;
 		}
